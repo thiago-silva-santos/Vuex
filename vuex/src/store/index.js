@@ -16,19 +16,24 @@ export default createStore({
       let teste = state.produtos.map((p) => {
         return p.quantidade * p.preco;
       })
-      console.log(teste);
       let reduceResult = teste.reduce(function (acumulador, valor) {
-        console.log("acumulados: " + acumulador)
         return acumulador + valor
-      }, 10)//.toFixed(2)      
-      console.log(reduceResult.toFixed(2));
-      console.log(reduceResult)
-      return reduceResult.toFixed(2);
+      }, 0).toFixed(2)      
+      return reduceResult;
     }
   },
   mutations: {
+    adicionarProduto(state, payload) {
+      state.produtos.push(payload)
+    }
   },
   actions: {
+
+    adicionarProduto(context, payload) {
+      setTimeout(() => {
+        context.commit('adicionarProduto', payload)
+      }, 1000)
+    }
   },
   modules: {
   }

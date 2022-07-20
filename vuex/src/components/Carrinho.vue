@@ -1,5 +1,5 @@
 <template>
-  <Painel titulo="Carrinho" azul >
+  <Painel titulo="Carrinho" azul>
     <template v-slot:conteudo>
       <div class="carrinho">
         <table>
@@ -22,13 +22,13 @@
         </table>
       </div>
     </template>
-    <template v-slot:actions >
+    <template v-slot:actions>
       <div class="total">
         <span class="notificacao">
           Quantidade: <strong> {{ produtos.length }}</strong>
         </span>
         <span
-          >Total: <strong>{{ total }}</strong></span
+          >Total: <strong>{{ valorTotal }}</strong></span
         >
       </div>
     </template>
@@ -36,16 +36,11 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from "vuex";
 export default {
   computed: {
-    total() {
-      return this.produtos
-        .map((p) => p.quantidade * p.preco)
-        .reduce((total, atual) => total + atual, 0);
-    },
-    produtos() {
-      return this.$store.state.produtos;
-    },
+    ...mapGetters(["valorTotal"]),
+    ...mapState(["produtos"]),
   },
   data() {
     return {};
@@ -56,11 +51,13 @@ export default {
 <style scoped>
 table {
   width: 100%;
+  border-collapse: collapse;
+  
 }
 
 td {
-  border-top: 1px solid #eee;
-  width: 23%;
+  border-bottom: 1px solid #eee;
+  padding: 5px 0px;
 }
 
 hr {
@@ -69,5 +66,4 @@ hr {
 .notificacao {
   margin-right: 5rem;
 }
-
 </style>

@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 export default {
   data() {
     return {
@@ -35,6 +36,7 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(['adicionarProduto']),
     adicionar() {
       const produto = {
         id: this.sequencia,
@@ -43,16 +45,10 @@ export default {
         preco: this.preco,
       };
       this.sequencia++;
-      // eslint-disable-next-line
-      //console.log(produto);
-      this.$store.state.produtos.push(produto);
+      this.adicionarProduto( produto)
     },
   },
-  // watch: {
-  //   nome(value) {
-  //     console.log(value);
-  //   },
-  // },
+
 };
 </script>
 

@@ -3,7 +3,7 @@
     <template v-slot:conteudo>
       <div class="resumo">
         <span style="color: white"
-          >Total: <strong>{{ total }}</strong></span
+          >Total: <strong>{{ valorTotal }}</strong></span
         >
         <hr />
       </div>
@@ -15,14 +15,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   computed: {
-    total() {
-      return this.$store.getters.valorTotal
-    },
-    produtos() {
-      return this.$store.state.produtos;
-    },
+    ...mapGetters(['valorTotal']),
   },
   data() {
     return {};
