@@ -40,7 +40,7 @@ import { mapGetters, mapState } from "vuex";
 export default {
   computed: {
     ...mapGetters(["valorTotal"]),
-    ...mapState(["produtos"]),
+    ...mapState(["produtos", "quantidade"]),
   },
   data() {
     return {};

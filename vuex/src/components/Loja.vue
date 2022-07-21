@@ -47,6 +47,7 @@ export default {
       this.sequencia++;
       this.adicionarProduto( produto)
     },
+    
   },
 
 };
