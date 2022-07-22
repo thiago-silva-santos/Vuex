@@ -7,7 +7,6 @@
 			<Carrinho />
 			<Resumo />
 		</div>
-
   </div>
 </template>
 
@@ -15,17 +14,17 @@
 import Loja from './components/Loja'
 import Carrinho from './components/Carrinho'
 import Resumo from './components/Resumo'
+import { mapState } from 'vuex';
 export default {
   name: "App",
-  components: {  Loja, Carrinho, Resumo },
+  components: {  Carrinho, Loja, Resumo },
   computed: {
-    total() {
-      return this.$store.getters.valorTotal;
-    },
-    produtos() {
-      return this.$store.state.produtos;
-    },
+
+    ...mapState('carrinho', ['quantidade'])
   },
+  created(){
+    console.log(this.$store)
+  }
 };
 </script>
 

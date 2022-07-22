@@ -39,8 +39,8 @@
 import { mapGetters, mapState } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["valorTotal"]),
-    ...mapState(["produtos", "quantidade"]),
+    ...mapGetters('carrinho', ['valorTotal']),
+    ...mapState('carrinho', ["produtos", "quantidade"]),
   },
   data() {
     return {};

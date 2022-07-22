@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -36,7 +36,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(['adicionarProduto']),
+    ...mapActions('loja',["ADD_PRODUCT"]),
     adicionar() {
       const produto = {
         id: this.sequencia,
@@ -45,11 +45,9 @@ export default {
         preco: this.preco,
       };
       this.sequencia++;
-      this.adicionarProduto( produto)
+      this.ADD_PRODUCT(produto);
     },
-    
   },
-
 };
 </script>
 

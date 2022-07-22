@@ -1,11 +1,15 @@
 import { createStore } from 'vuex'
-import mutations from './modules/mutations'
-import state from './modules/state'
-import getters from './modules/getters'
+import carrinho from './modules/carrinho.js'
+import loja from './modules/loja'
+import resumo from './modules/resumo'
 
 
-export default createStore({
-  state,
-  getters,
-  mutations
+const store = createStore({
+  modules: {
+    loja,
+    resumo,
+    carrinho
+  }
 })
+
+export default store
